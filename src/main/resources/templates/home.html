@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <form id="userForm" method="post" th:action="@{/hello}">
+        <label for="username">ID</label>
+        <input type="text" id="username" name="username" maxlength="12" />
+
+        <label for="password">PW</label>
+        <input type="password" id="password" name="password" maxlength="36" />
+
+        <button type="submit" value="전송">전송</button>
+    </form>
+</body>
+</html>
