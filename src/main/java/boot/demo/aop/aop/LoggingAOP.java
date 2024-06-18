@@ -45,7 +45,7 @@ public class LoggingAOP {
             if (arg instanceof Exception) {
                 continue;
             }
-            dynamicLog.info("Params : {}", arg);
+            dynamicLog.info("Request Params : {}", arg);
         }
 
         Object result = joinPoint.proceed(args);
