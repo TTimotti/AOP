@@ -1,13 +1,11 @@
-package boot.demo.aop.dto;
+package boot.demo.aop.model.dto;
 
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Builder;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
+@Data
+@Builder
 public class UserDTO {
     @NotEmpty(message = "아이디를 입력하세요")
     private String username;
