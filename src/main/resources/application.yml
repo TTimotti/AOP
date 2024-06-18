@@ -1,6 +1,10 @@
 server:
   servlet:
     context-path: /home
+  error:
+    whitelabel:
+      enabled: false
+    path: /error
 
 spring:
   application:
@@ -9,3 +13,18 @@ spring:
     restart:
       enabled: true
       additional-exclude: static/**
+  datasource:
+    url: jdbc:h2:./data/demo
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: 1234
+    mapper-location: classpath:mapper/*.xml
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: boot.demo.aop.model.TbUserMst
