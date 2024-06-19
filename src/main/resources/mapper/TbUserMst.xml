@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boot.demo.aop.repository.UserRepository">
 
-    <select id="getUserById" parameterType="TbUserMst">
-        SELECT * FROM TB_USER_MST WHERE USER_ID = #{userId}
-    </select>
-
-    <insert id="insertUserMst">
+    <insert id="insertUserMst" parameterType="TbUserMst">
         INSERT INTO TB_USER_MST (USER_ID, PASSWORD, NAME)
         VALUES (#{userId}, #{password}, #{name})
     </insert>
+
+    <select id="getUserById" parameterType="TbUserMst" resultType="TbUserMst">
+        SELECT * FROM TB_USER_MST WHERE USER_ID = #{userId}
+    </select>
 
 </mapper>
