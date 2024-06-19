@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.sql.SQLException;
+
 @Slf4j
 @ControllerAdvice
 public class AOPExceptionHandler {
@@ -23,6 +25,12 @@ public class AOPExceptionHandler {
     @ExceptionHandler(MissingRequestCookieException.class)
     public ResponseEntity<ErrorCode> missingCookie(MissingRequestCookieException e) {
         return ResponseEntity.badRequest().body(ErrorCode.MISSING_COOKIE);
+    }
+
+    @Loggable
+    @ExceptionHandler(SQLException.class)
+    public ResponseEntity<ErrorCode> invalidQuery(SQLException e) {
+        return ResponseEntity.badRequest().body(ErrorCode.INVALID_QUERY);
     }
 
 }

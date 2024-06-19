@@ -12,6 +12,7 @@ public enum ErrorCode {
     MISSING_COOKIE("2001", "MISSING_COOKIE", "Request cookie is missing"),
     MISSING_ARGUMENT("3001", "MISSING_ARGUMENT", "Request argument is missing"),
     INVALID_ARGUMENT("3002", "INVALID_ARGUMENT", "Invalid argument provided"),
+    INVALID_QUERY("3003", "INVALID_QUERY", "Invalid SQL query provided"),
     INTERNAL_SERVER_ERROR("500", "INTERNAL_SERVER_ERROR", "Internal server error occurred"),
     NOT_FOUND("400", "NOT_FOUND", "Requested resource not found");
 
