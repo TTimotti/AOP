@@ -6,6 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserRepository {
 
-    TbUserMst insertUserMst(TbUserMst userMst);
+    int insertUserMst(TbUserMst userMst);
 
 }
