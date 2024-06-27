@@ -1,6 +1,5 @@
 package boot.demo.aop.exception;
 
-import boot.demo.aop.aop.annotation.Loggable;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -13,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AOPErrorController implements ErrorController {
 
-    @Loggable
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request, Model model) {
-        log.error(request.getAttribute(RequestDispatcher.ERROR_EXCEPTION).toString());
         model.addAttribute("status", request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE));
         model.addAttribute("message", request.getAttribute(RequestDispatcher.ERROR_MESSAGE));
         return "error";
