@@ -1,12 +1,14 @@
 server:
   servlet:
-    context-path: /home
+    context-path:
   error:
     whitelabel:
       enabled: false
     path: /error
 
 spring:
+  profiles:
+    active: dev
   application:
             name: AOP
   devtools:
@@ -18,18 +20,23 @@ spring:
     driver-class-name: org.h2.Driver
     username: admin
     password: 1234
-
   h2:
     console:
       enabled: true
       path: /h2-console
+  security:
+    user:
+      name: admin
+      password: 1234
+
 
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-  type-aliases-package: boot.demo.aop.model
+  type-aliases-package: boot.demo.aop.model.dto boot.demo.aop.model.entity
   mapper-locations: classpath:mapper/*.xml
 
 logging:
   level:
+    root: info
     sql: trace
