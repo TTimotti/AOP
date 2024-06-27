@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Test Page</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/favicon.ico}">
+</head>
+<body>
+    <h1>LOGIN USER: <span id="loginUserName" th:text="${#authentication.name}"></span></h1>
+    <h1>USER ROLE: <span id="userRole" th:text="${#authentication.authorities}"></span></h1>
+</body>
+</html>
