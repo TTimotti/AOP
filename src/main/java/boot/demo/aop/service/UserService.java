@@ -30,7 +30,7 @@ public class UserService {
 
     @Loggable
     @Transactional
-    public void insertUserMst(@Valid SignUpRequestDTO signUpRequestDTO) {
+    public void insertUserMst(SignUpRequestDTO signUpRequestDTO) {
         TbUserMst user = tbUserMstRepository.getUserMstById(signUpRequestDTO.getUsername());
         if (user != null) {
             throw new AOPException(ErrorCode.ALREADY_HAS_USER);
