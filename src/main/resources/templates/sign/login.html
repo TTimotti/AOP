@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+<form th:action="@{/sign/login}" method="post">
+    <label for="username">ID: </label>
+    <input type="text" id="username" name="username" maxlength="40" />
+
+    <label for="password">PW: </label>
+    <input type="password" id="password" name="password" maxlength="200" />
+
+    <button type="submit">로그인</button>
+</form>
+<a th:href="@{/sign/signUp}">회원가입</a>
+</body>
+<script th:inline="javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let errorMsg = [[${errorMessage}]];
+        if(errorMsg) {
+            alert(errorMsg);
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    });
+
+</script>
+</html>

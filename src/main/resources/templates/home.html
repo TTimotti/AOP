@@ -6,46 +6,25 @@
     <link rel="icon" type="image/x-icon" th:href="@{/favicon.ico}">
 </head>
 <body>
-    <form id="userForm" method="post" th:action="@{/insert}">
-        <label for="username">ID</label>
-        <input type="text" id="username" name="username" maxlength="12" />
-
-        <label for="password">PW</label>
-        <input type="password" id="password" name="password" maxlength="36" />
-
-        <button type="submit" value="전송">전송</button>
-    </form>
-    <h5>RESPONSE: <span id="response"></span></h5>
+<header>
+    <h1>
+            <span th:if="${#authentication.authenticated}">
+                LOGIN USER: <span id="loginUserName" th:text="${#authentication.name}"></span>
+                USER ROLE: <span id="userRole" th:text="${#authentication.authorities}"></span>
+            </span>
+            <span th:unless="${#authentication.authenticated}">
+                NOT LOGGED IN
+            </span>
+    </h1>
+    <pre th:text="${#authentication}"></pre>
+</header>
+<nav>
+        <span th:if="${#authentication.authenticated}">
+            <a th:href="@{/sign/logout}" id="logout">로그아웃</a>
+        </span>
+    <span th:unless="${#authentication.authenticated}">
+            <a th:href="@{/sign/login}" id="login">로그인</a>
+        </span>
+</nav>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-        document.getElementById("userForm").addEventListener('submit', function (event) {
-            event.preventDefault();
-            const form = event.target
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                method: form.method,
-                body: formData
-            })
-            .then(response => response.json())
-            .then(response => {
-                if (response.code) {
-                    throw new Error(response.message);
-                }
-
-                return response;
-            })
-            .then(data => {
-                document.getElementById("response").innerText = data.username;
-            })
-            .catch(error => {
-                document.getElementById("response").innerText = '';
-                alert(error);
-            });
-        });
-    });
-
-</script>
 </html>
