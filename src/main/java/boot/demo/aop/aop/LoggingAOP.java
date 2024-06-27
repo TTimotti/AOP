@@ -50,7 +50,9 @@ public class LoggingAOP {
 
         Object result = joinPoint.proceed(args);
 
-        dynamicLog.info("Result : {}", result);
+        if (result != null) {
+            dynamicLog.info("Result : {}", result);
+        }
         dynamicLog.info("############################ END ############################");
 
         return result;
