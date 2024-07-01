@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="icon" type="image/x-icon" th:href="@{/favicon.ico}">
+    <style>
+        .wrapped-pre {
+            white-space: pre-wrap; /* 자동 줄바꿈을 위한 CSS 속성 */
+            word-wrap: break-word; /* 긴 단어도 줄바꿈 가능 */
+        }
+    </style>
 </head>
 <body>
 <header>
-    <h1>
-            <span th:if="${#authentication.authenticated}">
-                LOGIN USER: <span id="loginUserName" th:text="${#authentication.name}"></span>
+    <div>
+        <div th:if="${#authentication.authenticated}">
+            <h1>
+                USER ID: <span id="loginUserId" th:text="${#authentication.name}"></span>
+            </h1>
+            <h3>
                 USER ROLE: <span id="userRole" th:text="${#authentication.authorities}"></span>
-            </span>
-            <span th:unless="${#authentication.authenticated}">
-                NOT LOGGED IN
-            </span>
-    </h1>
-    <pre th:text="${#authentication}"></pre>
+            </h3>
+        </div>
+        <div th:unless="${#authentication.authenticated}">
+            NOT LOGGED IN
+        </div>
+    </div>
+    <pre class="wrapped-pre" th:text="${#authentication}"></pre>
 </header>
 <nav>
         <span th:if="${#authentication.authenticated}">

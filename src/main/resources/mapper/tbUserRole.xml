@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="boot.demo.aop.repository.TbUserRoleRepository">
+<mapper namespace="boot.demo.aop.common.repository.TbUserRoleRepository">
     <insert id="insertTbUserRole" parameterType="TbUserRole">
         INSERT INTO TB_USER_ROLE (USER_ID, ROLE_CODE)
         VALUES (#{userId}, #{roleCode})

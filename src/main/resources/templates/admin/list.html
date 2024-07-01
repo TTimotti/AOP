@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Admin List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Roles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 타임리프를 사용하여 데이터를 테이블에 렌더링 -->
+    <tr th:if="${#lists.isEmpty(adminList)}">
+        관리자가 없습니다.
+    </tr>
+    <tr th:each="admin : ${adminList}">
+        <td th:text="${admin.id}"></td>
+        <td th:text="${admin.name}"></td>
+        <td>
+            <th:block th:each="role : ${admin.roleList}">
+                <span th:text="${role}"></span>
+            </th:block>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">메인화면</a>
+</body>
+<script th:inline="javascript">
+
+</script>
+</html>

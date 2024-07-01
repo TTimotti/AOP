@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="boot.demo.aop.repository.TbUserMstRepository">
+<mapper namespace="boot.demo.aop.common.repository.TbUserMstRepository">
 
     <insert id="insertTbUserMst" parameterType="TbUserMst">
-        INSERT INTO TB_USER_MST (USER_ID, PASSWORD)
-        VALUES (#{userId}, #{password})
+        INSERT INTO TB_USER_MST (USER_ID, PASSWORD, NAME, EMAIL)
+        VALUES (#{userId}, #{password}, #{name}, #{email})
     </insert>
 
     <select id="getUserMstById" parameterType="String" resultType="TbUserMst">
         SELECT * FROM TB_USER_MST WHERE USER_ID = #{userId}
+    </select>
+    <select id="getAllAdmin" resultType="TbUserMst">
+        SELECT
+            um.*
+        FROM
+            TB_USER_MST um
+        JOIN TB_USER_ROLE ur ON um.USER_ID = ur.USER_ID
+        JOIN TB_ROLE role ON ur.ROLE_CODE = role.CODE
+        WHERE
+            ur.ROLE_CODE = 9
     </select>
 
 </mapper>
