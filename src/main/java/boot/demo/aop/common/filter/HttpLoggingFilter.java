@@ -19,7 +19,10 @@ public class HttpLoggingFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         if (request.getRequestURI().endsWith("/favicon.ico")
-                || request.getRequestURI().contains("/h2-console")) {
+                || request.getRequestURI().contains("/h2-console")
+                || request.getRequestURI().endsWith(".css")
+                || request.getRequestURI().endsWith(".js")
+        ) {
             filterChain.doFilter(request, response);
             return;
         }
