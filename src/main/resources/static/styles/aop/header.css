@@ -1,0 +1,6 @@
+header {
+    background-color: #343a40; /* 헤더 배경색 */
+    color: #ffffff; /* 헤더 텍스트 색상 */
+    padding: 10px 0; /* 헤더 상하 패딩 */
+    text-align: center;
+}
