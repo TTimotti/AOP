@@ -1,15 +1,7 @@
 /* layout.css */
-/* init */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* 전체 페이지 스타일 */
 body, html {
-    height: 100%;
-    margin: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
 body {
@@ -18,26 +10,30 @@ body {
     background-color: #f8f9fa;
 }
 
+#flex_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 /* header */
 header {
     display: flex;
     background-color: #343a40;
     color: #ffffff;
-    padding: 10px 0;
     text-align: center;
     align-items: center;
 }
 
-header #logo {
+#logo {
     width: 250px;
 }
 
-header #header {
+#header {
     margin-left: auto;
     margin-right: auto;
 }
 
-header #control_group {
+#control_area {
     display: flex;
     gap: 25px;
     padding: 15px 25px 15px 15px;
@@ -47,10 +43,9 @@ header #control_group {
 
 /* article */
 article {
+    display: flex;
+    flex-direction: column;
     flex: 1;
-    height: 100%;
-    background-color: #ffffff;
-    padding: 20px;
 }
 
 /* nav */
@@ -115,7 +110,6 @@ aside ul li.active a {
 footer {
     background-color: #343a40;
     color: #ffffff;
-    padding: 10px 0;
     text-align: center;
 }
 
