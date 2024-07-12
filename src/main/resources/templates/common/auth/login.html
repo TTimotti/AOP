@@ -4,31 +4,28 @@
 <head>
     <title>Login Page</title>
     <link/>
-    <style>
-        .login_input_group {
-            position: relative;
-            align-self: center;
-            margin-bottom: 5px;
-        }
-    </style>
 </head>
 <body>
-<article>
-    <h1>AOP LOGIN PAGE</h1>
-    <form id="login_form" th:action="@{/auth/login}" method="post" style="width: 100%; display: flex; flex-direction: column;">
-        <div class="login_input_group">
-            <input type="text" id="username" name="username" maxlength="40" placeholder="ID" />
-            <label for="username" class="float_label">ID</label>
-        </div>
-        <div class="login_input_group">
-            <input type="password" id="password" name="password" maxlength="200" placeholder="PW" />
-            <label for="password" class="float_label">Password</label>
+<article style="width:400px; align-self: center; align-items: center; margin-top: 30px;">
+    <div style="align-self: flex-end;">
+        <a class="button update" th:href="@{/auth/signUp}">회원가입</a>
+    </div>
+
+    <h1 style="margin-top: 50px">AOP LOGIN PAGE</h1>
+
+    <form id="login_form" th:action="@{/auth/login}" method="post" style="width: 300px; align-items: center; margin-top: 50px;">
+        <div class="float_label_group">
+            <input type="text" id="username" name="username" maxlength="40" placeholder="ID" required />
+            <label for="username">ID</label>
         </div>
 
-        <div id="two_buttons_group">
-            <button class="update" type="submit">로그인</button>
-            <a class="button update" th:href="@{/auth/signUp}">회원가입</a>
+        <div class="float_label_group">
+            <input type="password" id="password" name="password" maxlength="200" placeholder="Password" required />
+            <label for="password">Password</label>
         </div>
+
+        <button class="update" type="submit" style="width: 281px;">로그인</button>
+
     </form>
 </article>
 </body>

@@ -10,9 +10,11 @@ body {
     background-color: #f8f9fa;
 }
 
-#flex_wrapper {
+#wrapper {
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
 }
 
 /* header */
@@ -45,7 +47,7 @@ header {
 article {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex-grow: 1;
 }
 
 /* nav */
@@ -108,6 +110,7 @@ aside ul li.active a {
 
 /* footer */
 footer {
+    height: 120px;
     background-color: #343a40;
     color: #ffffff;
     text-align: center;
@@ -135,6 +138,6 @@ footer {
 /* groups */
 #two_buttons_group {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin: 15px 0;
 }
