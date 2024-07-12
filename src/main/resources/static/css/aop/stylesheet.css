@@ -1,6 +1,17 @@
-/* reset */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, pre, blockquote, a, abbr, address, cite, code, em, img, q, s, strong, sub, sup, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
-tbody, thead, tfoot, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+/* S:reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -9,44 +20,36 @@ tbody, thead, tfoot, tr, th, td, article, aside, canvas, details, embed, figure,
     vertical-align: baseline;
 }
 
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
 body {
     line-height: 1;
 }
 
-ul, ol {
+ol, ul {
     list-style: none;
 }
-
 blockquote, q {
     quotes: none;
 }
 
-blockquote::before, q::before, blockquote::after, q::after {
+blockquote:before, blockquote:after,
+q:before, q:after {
     content: '';
     content: none;
 }
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    table-layout: fixed;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
-    cursor: pointer;
 }
 
-button {
-    cursor: pointer;
-    background: none;
-    border: 0;
-    padding: 0;
-    margin: 0;
-}
-/* end_reset */
-/* h1 ~ h6 태그 스타일 */
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -71,28 +74,25 @@ h5 {
     font-size: 1.25rem;
     font-weight: bold;
 }
-
+/* E:reset */
+/* table */
 th, td {
-    border: 1px solid #dddddd; /* 테이블 셀 테두리 */
-    padding: 8px; /* 셀 안 여백 */
-    text-align: left; /* 텍스트 정렬 */
+    border: 1px solid #dddddd;
+    padding: 8px;
 }
 
 th {
-    background-color: #f2f2f2; /* 헤더 배경색 */
+    background-color: #f2f2f2;
 }
-
-/* button */
+/* S:button */
 /* 기본 버튼 */
 button,
-.button,
-input[type="button"],
-input[type="submit"] {
+.button {
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 20px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -101,152 +101,120 @@ input[type="submit"] {
 
 /* 세컨더리 버튼 */
 button.secondary,
-.button.secondary,
-input[type="button"].secondary,
-input[type="submit"].secondary {
+.button.secondary {
     background-color: #6c757d; /* 회색 */
     color: #fff; /* 흰색 텍스트 */
 }
 
 /* 성공 버튼 */
 button.success,
-.button.success,
-input[type="button"].success,
-input[type="submit"].success {
+.button.success {
     background-color: #28a745; /* 녹색 */
     color: #fff; /* 흰색 텍스트 */
 }
 
 /* 경고 버튼 */
 button.warning,
-.button.warning,
-input[type="button"].warning,
-input[type="submit"].warning {
+.button.warning {
     background-color: #ffc107; /* 노란색 */
     color: #212529; /* 진한 회색 텍스트 */
 }
 
 /* 위험 버튼 */
 button.danger,
-.button.danger,
-input[type="button"].danger,
-input[type="submit"].danger {
+.button.danger {
     background-color: #dc3545; /* 빨간색 */
     color: #fff; /* 흰색 텍스트 */
 }
 
 /* 정보 버튼 */
 button.info,
-.button.info,
-input[type="button"].info,
-input[type="submit"].info {
+.button.info {
     background-color: #17a2b8; /* 청록색 */
     color: #fff; /* 흰색 텍스트 */
 }
 
 /* 다크 버튼 */
 button.dark,
-.button.dark,
-input[type="button"].dark,
-input[type="submit"].dark {
+.button.dark {
     background-color: #343a40; /* 진한 회색 */
     color: #fff; /* 흰색 텍스트 */
 }
 
 /* 밝은 버튼 */
 button.light,
-.button.light,
-input[type="button"].light,
-input[type="submit"].light {
+.button.light {
     background-color: #f8f9fa; /* 밝은 회색 */
     color: #212529; /* 진한 회색 텍스트 */
 }
 
 button:hover,
-.button:hover,
-input[type="button"]:hover,
-input[type="submit"]:hover {
+.button:hover {
     opacity: 0.8;
 }
+/* E:button */
 
 /* input */
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="number"],
+input,
 textarea {
-    width: 100%;
-    padding: 10px;
     font-size: 16px;
-    margin: 0 5px;
     border: 1px solid #cccccc;
     border-radius: 5px;
     outline: none;
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus,
+input:focus,
 textarea:focus {
     outline: none;
     border-color: dodgerblue;
     box-shadow: 0 0 5px dodgerblue;
 }
 
-/* label */
-label {
-    left: 10px;
-    top: 10px;
-    padding: 0 5px;
-    background-color: white;
-    color: #999;
-    font-size: 16px;
-    transition: 0.2s;
-    pointer-events: none;
+/* form */
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-label.float_label {
+.float_label_group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.float_label_group label {
     position: absolute;
-    left: 10px;
-    top: 10px;
-    padding: 0 5px;
-    background-color: white;
-    color: #999;
-    font-size: 16px;
-    transition: 0.2s;
     pointer-events: none;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s ease-out;
+    padding: 0 5px;
+    z-index: 1;
 }
 
-input:focus + label.float_label,
-input:not(:placeholder-shown) + label.float_label {
-    top: -10px;
-    left: 10px;
-    font-size: 12px;
-    color: #007BFF;
-    transform: translateY(0);
+.float_label_group input:focus + label,
+.float_label_group input:not(:placeholder-shown) + label {
+    font-size: 0.7em;
+    color: rgba(70, 130, 180, 0.7);
+    transform: translateY(-100%) scale(0.8);
 }
 
-/* placeholder */
-input::placeholder {
+.float_label_group input {
+    width: 100%;
+    padding: 20px 10px 10px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.2s ease-in-out;
+    font-size: 1em;
+}
+
+.float_label_group input:focus {
+    outline: none;
+    border-color: #4e73df;
+}
+
+.float_label_group input::placeholder {
     color: transparent;
 }
 
-/* form */
-form.default {
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0;
-}
-
-#search_form {
-    display: flex;
-    align-items: baseline;
-    margin: 15px 0;
-}
-
-#search_form button {
-    white-space: nowrap;
-    font-weight: bold;
-}
