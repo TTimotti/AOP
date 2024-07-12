@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" th:replace="~{common/layout/auth-default :: layout(~{:: title}, ~{:: article}, ~{:: link}, ~{:: script})}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AOP SignUp Page</title>
+    <link/>
+</head>
+<body>
+<article class="center_wrapper">
+
+    <form id="signUpForm" class="default" method="post" th:action="@{/auth/signUp}">
+        <div class="form_group">
+            <input type="text" id="username" name="username" maxlength="40" placeholder="ID" />
+            <label for="username" class="float_label">ID</label>
+        </div>
+        <div class="form_group">
+            <input type="password" id="password" name="password" maxlength="200" placeholder="PW" />
+            <label for="password" class="float_label">PW</label>
+        </div>
+        <div class="form_group">
+            <input type="text" id="name" name="name" maxlength="40" placeholder="NAME" />
+            <label for="name" class="float_label">NAME</label>
+        </div>
+        <button type="submit" value="전송">가입하기</button>
+    </form>
+</article>
+</body>
+<script th:inline="javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        let errorMsg = [[${errorMessage}]];
+        if(errorMsg) {
+            alert(errorMsg);
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,10 @@
+<head th:fragment="headFragment(title, link)">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title th:replace="${title}"></title>
+
+    <link th:href="@{/css/aop/stylesheet.css}" rel="stylesheet" />
+    <link th:href="@{/css/aop/layout.css}" rel="stylesheet" />
+    <th:block th:replace="${link}"></th:block>
+</head>

@@ -30,10 +30,10 @@
 </header>
 <nav>
         <span th:if="${#authentication.authenticated}">
-            <a th:href="@{/sign/logout}" id="logout">로그아웃</a>
+            <a th:href="@{/templates/common/auth/logout}" id="logout">로그아웃</a>
         </span>
     <span th:unless="${#authentication.authenticated}">
-            <a th:href="@{/sign/login}" id="login">로그인</a>
+            <a th:href="@{/templates/common/auth/login}" id="login">로그인</a>
         </span>
 </nav>
 </body>

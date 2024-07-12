@@ -1,0 +1,15 @@
+<header th:fragment="headerFragment">
+    <div id="logo">
+        <h1>LOGO</h1>
+    </div>
+    <div id="header">
+        <h1>AOP DEMO SITE</h1>
+    </div>
+    <div id="control_group">
+        <th:block sec:authorize="isAuthenticated()">
+            <h3 th:text="${#authentication.name}"></h3>
+            <a class="button secondary" th:href="@{/auth/logout}">로그아웃</a>
+        </th:block>
+    </div>
+
+</header>

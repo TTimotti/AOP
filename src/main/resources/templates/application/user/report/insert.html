@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{common/layout/user-default :: layout(~{:: title}, ~{:: article}, ~{:: link}, ~{:: script})}">
+
+<head>
+    <title>AOP DEMO SITE</title>
+    <link/>
+</head>
+
+<body>
+<article>
+    <form id="report_form" class="default" method="post" th:action="@{/report/insert}">
+
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title"/>
+
+
+        <label for="author">작성자</label>
+        <input type="text" id="author" name="author"/>
+
+        <label for="content">본문</label>
+        <textarea id="content" name="content"></textarea>
+
+        <button type="submit">등록</button>
+    </form>
+</article>
+<script th:inline="javascript">
+document.addEventListener('DOMContentLoaded', function() {
+	
+	function goToPage(pageNumber) {
+	    const keyword = document.getElementById('keyword').value;
+	    alert(pageNumber);
+	    
+	    window.location.href = `/admin/list?pageNo=${pageNumber}`;
+	}
+	
+});
+</script>
+</body>
+</html>

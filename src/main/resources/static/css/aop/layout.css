@@ -1,0 +1,146 @@
+/* layout.css */
+/* init */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 전체 페이지 스타일 */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+/* header */
+header {
+    display: flex;
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    align-items: center;
+}
+
+header #logo {
+    width: 250px;
+}
+
+header #header {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header #control_group {
+    display: flex;
+    gap: 25px;
+    padding: 15px 25px 15px 15px;
+    align-items: center;
+    text-align: center;
+}
+
+/* article */
+article {
+    flex: 1;
+    height: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* nav */
+nav {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a {
+    padding: 10px 15px;
+/ text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* aside */
+aside {
+    width: 250px;
+    background-color: #495057;
+    color: #ffffff;
+    padding: 4px;
+}
+
+aside ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+aside ul li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+aside ul li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+aside ul li:hover {
+    background-color: #e9ecef;
+}
+
+aside ul li.active {
+    background-color: #007bff;
+}
+
+aside ul li.active a {
+    color: #fff;
+}
+
+/* footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* pagination */
+
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination a:hover {
+    background-color: #f4f4f4;
+}
+
+/* groups */
+#two_buttons_group {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}

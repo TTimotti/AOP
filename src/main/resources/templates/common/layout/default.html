@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, article, link, script)">
+
+<!--common head-->
+<th:block th:replace="~{common/fragments/head :: headFragment(${title}, ${link})}"></th:block>
+
+<body id="page_top">
+<div id="wrapper">
+    <!--header-->
+    <th:block th:replace="~{common/fragments/header :: headerFragment}"></th:block>
+    <div id="article_wrapper">
+        <!--aside-->
+        <th:block th:replace="~{common/fragments/aside :: asideFragment}"></th:block>
+        <!--article-->
+        <th:block th:replace="${article}"></th:block>
+
+    </div>
+    <!--common footer-->
+    <th:block th:replace="~{common/fragments/footer :: footerFragment}"></th:block>
+</div>
+
+<!--common script-->
+<th:block th:replace="~{common/fragments/script :: scriptFragment(${script})}"></th:block>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{common/layout/auth-default :: layout(~{:: title}, ~{:: article}, ~{:: link}, ~{:: script})}">
+<head>
+    <title>Login Page</title>
+    <link/>
+    <style>
+        .login_input_group {
+            position: relative;
+            align-self: center;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<article>
+    <h1>AOP LOGIN PAGE</h1>
+    <form id="login_form" th:action="@{/auth/login}" method="post" style="width: 100%; display: flex; flex-direction: column;">
+        <div class="login_input_group">
+            <input type="text" id="username" name="username" maxlength="40" placeholder="ID" />
+            <label for="username" class="float_label">ID</label>
+        </div>
+        <div class="login_input_group">
+            <input type="password" id="password" name="password" maxlength="200" placeholder="PW" />
+            <label for="password" class="float_label">Password</label>
+        </div>
+
+        <div id="two_buttons_group">
+            <button class="update" type="submit">로그인</button>
+            <a class="button update" th:href="@{/auth/signUp}">회원가입</a>
+        </div>
+    </form>
+</article>
+</body>
+<script th:inline="javascript">
+    window.onload = function () {
+        var errorMsg = [[${errorMessage}]];
+        console.log(errorMsg);
+        if(errorMsg) {
+            alert(errorMsg);
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    };
+</script>
+</html>

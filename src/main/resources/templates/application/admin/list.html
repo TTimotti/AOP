@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{common/layout/admin-default :: layout(~{:: title}, ~{:: article}, ~{:: link}, ~{:: script})}">
+
+<head>
+    <title>관리자 리스트</title>
+    <link/>
+</head>
+
+<body>
+<article>
+    <h1>관리자 리스트</h1>
+    <!-- 검색 폼 -->
+    <form action="#" method="get">
+        <input type="text" name="keyword" th:value="${keyword}" placeholder="Search..."/>
+        <button type="submit">Search</button>
+    </form>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Roles</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(adminList)}">
+            <td>관리자가 없습니다.</td>            
+        </tr>
+        <tr th:each="admin : ${adminList}">
+            <td th:text="${admin.id}"></td>
+            <td th:text="${admin.name}"></td>
+            <td>
+                <th:block th:each="role : ${admin.roleList}">
+                    <span th:text="${role}"></span>
+                </th:block>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- 페이징 링크 -->
+    <th:block th:replace="~{fragments/pagination :: paginationFragment}"></th:block>
+    <a class="button register" th:href="@{/static}">등록</a>
+    
+</article>
+<script th:inline="javascript">
+document.addEventListener('DOMContentLoaded', function() {
+	
+	function goToPage(pageNumber) {
+	    const keyword = document.getElementById('keyword').value;
+	    alert(pageNumber);
+	    
+	    window.location.href = `/admin/list?pageNo=${pageNumber}`;
+	}
+	
+});
+</script>
+</body>
+</html>

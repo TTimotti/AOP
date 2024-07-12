@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{common/layout/user-default :: layout(~{:: title}, ~{:: article}, ~{:: link}, ~{:: script})}">
+
+<head>
+    <title>AOP DEMO SITE</title>
+    <link/>
+</head>
+
+<body>
+<article>
+    <nav>
+        <a th:href="@{/report/insert}">보고서 등록</a>
+        <a th:href="@{/main}">보고서 조회</a>
+        <a th:href="@{/main}">보고서 현황</a>
+    </nav>
+    <!-- 검색 폼 -->
+    <form id="search_form" action="#" method="get">
+        <div class="form_group" style="flex: 1; margin-right: 10px;">
+            <input id="keyword" type="text" name="keyword" th:value="${keyword}" placeholder="보고서 제목" />
+            <label for="keyword">보고서 검색</label>
+        </div>
+        <button type="submit">검색</button>
+        <button type="button">상세검색</button>
+    </form>
+    <table>
+        <colgroup>
+            <col style="width: 70%;">
+            <col style="width: 15%;">
+            <col style="width: 15%;">
+        </colgroup>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(adminList)}">
+            <h3 style="text-align: center;">등록된 보고서가 없습니다.</h3>
+        </tr>
+<!--        <tr th:each="admin : ${adminList}">-->
+<!--            <td th:text="${admin.id}"></td>-->
+<!--            <td th:text="${admin.name}"></td>-->
+<!--            <td>-->
+<!--                <th:block th:each="role : ${admin.roleList}">-->
+<!--                    <span th:text="${role}"></span>-->
+<!--                </th:block>-->
+<!--            </td>-->
+<!--        </tr>-->
+        </tbody>
+    </table>
+    <!-- 페이징 링크 -->
+    <th:block th:replace="~{common/fragments/pagination :: paginationFragment}"></th:block>
+    <a class="button register" th:href="@{/static}">등록</a>
+    
+</article>
+<script th:inline="javascript">
+document.addEventListener('DOMContentLoaded', function() {
+	
+	function goToPage(pageNumber) {
+	    const keyword = document.getElementById('keyword').value;
+	    alert(pageNumber);
+	    
+	    window.location.href = `/admin/list?pageNo=${pageNumber}`;
+	}
+	
+});
+</script>
+</body>
+</html>

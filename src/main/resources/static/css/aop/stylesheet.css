@@ -1,0 +1,252 @@
+/* reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, pre, blockquote, a, abbr, address, cite, code, em, img, q, s, strong, sub, sup, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, thead, tfoot, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote::before, q::before, blockquote::after, q::after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+/* end_reset */
+/* h1 ~ h6 태그 스타일 */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+th, td {
+    border: 1px solid #dddddd; /* 테이블 셀 테두리 */
+    padding: 8px; /* 셀 안 여백 */
+    text-align: left; /* 텍스트 정렬 */
+}
+
+th {
+    background-color: #f2f2f2; /* 헤더 배경색 */
+}
+
+/* button */
+/* 기본 버튼 */
+button,
+.button,
+input[type="button"],
+input[type="submit"] {
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
+
+/* 세컨더리 버튼 */
+button.secondary,
+.button.secondary,
+input[type="button"].secondary,
+input[type="submit"].secondary {
+    background-color: #6c757d; /* 회색 */
+    color: #fff; /* 흰색 텍스트 */
+}
+
+/* 성공 버튼 */
+button.success,
+.button.success,
+input[type="button"].success,
+input[type="submit"].success {
+    background-color: #28a745; /* 녹색 */
+    color: #fff; /* 흰색 텍스트 */
+}
+
+/* 경고 버튼 */
+button.warning,
+.button.warning,
+input[type="button"].warning,
+input[type="submit"].warning {
+    background-color: #ffc107; /* 노란색 */
+    color: #212529; /* 진한 회색 텍스트 */
+}
+
+/* 위험 버튼 */
+button.danger,
+.button.danger,
+input[type="button"].danger,
+input[type="submit"].danger {
+    background-color: #dc3545; /* 빨간색 */
+    color: #fff; /* 흰색 텍스트 */
+}
+
+/* 정보 버튼 */
+button.info,
+.button.info,
+input[type="button"].info,
+input[type="submit"].info {
+    background-color: #17a2b8; /* 청록색 */
+    color: #fff; /* 흰색 텍스트 */
+}
+
+/* 다크 버튼 */
+button.dark,
+.button.dark,
+input[type="button"].dark,
+input[type="submit"].dark {
+    background-color: #343a40; /* 진한 회색 */
+    color: #fff; /* 흰색 텍스트 */
+}
+
+/* 밝은 버튼 */
+button.light,
+.button.light,
+input[type="button"].light,
+input[type="submit"].light {
+    background-color: #f8f9fa; /* 밝은 회색 */
+    color: #212529; /* 진한 회색 텍스트 */
+}
+
+button:hover,
+.button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+/* input */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 0 5px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: dodgerblue;
+    box-shadow: 0 0 5px dodgerblue;
+}
+
+/* label */
+label {
+    left: 10px;
+    top: 10px;
+    padding: 0 5px;
+    background-color: white;
+    color: #999;
+    font-size: 16px;
+    transition: 0.2s;
+    pointer-events: none;
+}
+
+label.float_label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding: 0 5px;
+    background-color: white;
+    color: #999;
+    font-size: 16px;
+    transition: 0.2s;
+    pointer-events: none;
+}
+
+input:focus + label.float_label,
+input:not(:placeholder-shown) + label.float_label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #007BFF;
+    transform: translateY(0);
+}
+
+/* placeholder */
+input::placeholder {
+    color: transparent;
+}
+
+/* form */
+form.default {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+#search_form {
+    display: flex;
+    align-items: baseline;
+    margin: 15px 0;
+}
+
+#search_form button {
+    white-space: nowrap;
+    font-weight: bold;
+}

@@ -1,0 +1,20 @@
+<div th:fragment="paginationFragment">
+    <!-- 페이지네이션 버튼 -->
+    <div class="pagination">
+        
+        <a class="page-link" th:onclick="@{}"><span class="page-link" th:text="${pagination.pageNo}">1</span></a>
+    
+    
+        <a class="page-link" th:href="javascript:goToPage(${pagination.prevPageNo});">이전 블록</a>
+    
+    
+        <a class="page-link">블록</a>
+    
+    
+        <a class="page-link" th:href="javascript:goToPage(${pagination.nextPageNo});">다음 블록</a>
+    
+    
+        <a class="page-link" th:href="javascript:goToPage(${pagination.finalPageNo});">맨 뒤</a>
+        
+    </div>
+</div>
