@@ -5,7 +5,7 @@
     <div id="header">
         <h1>AOP DEMO SITE</h1>
     </div>
-    <div id="control_group">
+    <div id="control_area">
         <th:block sec:authorize="isAuthenticated()">
             <h3 th:text="${#authentication.name}"></h3>
             <a class="button secondary" th:href="@{/auth/logout}">로그아웃</a>
