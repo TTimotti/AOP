@@ -7,22 +7,28 @@
     <link/>
 </head>
 <body>
-<article class="center_wrapper">
+<article style="width:400px; align-self: center; align-items: center; margin-top: 30px;">
+    <div style="display: flex; flex-direction: row-reverse; justify-content: space-between; width: 100%;">
+        <a class="button secondary" th:href="@{/auth/login}">로그인</a>
+        <a class="button secondary" th:href="@{/main}" sec:authorize="isAuthenticated()">메인화면</a>
+    </div>
 
-    <form id="signUpForm" class="default" method="post" th:action="@{/auth/signUp}">
-        <div class="form_group">
+    <h1 style="margin-top: 50px">AOP SIGN UP PAGE</h1>
+
+    <form id="signUpForm" class="default" method="post" th:action="@{/auth/signUp}" style="width: 300px; align-items: center; margin-top: 50px;">
+        <div class="float_label_group">
             <input type="text" id="username" name="username" maxlength="40" placeholder="ID" />
-            <label for="username" class="float_label">ID</label>
+            <label for="username">ID</label>
         </div>
-        <div class="form_group">
+        <div class="float_label_group">
             <input type="password" id="password" name="password" maxlength="200" placeholder="PW" />
-            <label for="password" class="float_label">PW</label>
+            <label for="password">PW</label>
         </div>
-        <div class="form_group">
+        <div class="float_label_group">
             <input type="text" id="name" name="name" maxlength="40" placeholder="NAME" />
-            <label for="name" class="float_label">NAME</label>
+            <label for="name">NAME</label>
         </div>
-        <button type="submit" value="전송">가입하기</button>
+        <button type="submit" style="width: 281px;">가입하기</button>
     </form>
 </article>
 </body>

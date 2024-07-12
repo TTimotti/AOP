@@ -88,6 +88,7 @@ th {
 /* 기본 버튼 */
 button,
 .button {
+    display: inline-block;
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
