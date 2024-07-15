@@ -8,10 +8,8 @@
 <div id="wrapper">
     <!--header-->
     <th:block th:replace="~{common/fragments/header :: headerFragment}"></th:block>
-    <div id="article_wrapper">
-        <!--article-->
-        <th:block th:replace="${article}"></th:block>
-    </div>
+    <!--article-->
+    <th:block th:replace="${article}"></th:block>
     <!--common footer-->
     <th:block th:replace="~{common/fragments/footer :: footerFragment}"></th:block>
 </div>
