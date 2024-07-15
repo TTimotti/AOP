@@ -1,6 +1,6 @@
 package boot.demo.aop.application.rms.common.annotation;
 
-import jakarta.servlet.http.HttpServletRequest;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,6 +12,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Aspect
 @Component
@@ -62,7 +64,8 @@ public class MethodLoggingProxy {
 
     private HttpServletRequest getCurrentHttpRequest() {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        if (requestAttributes instanceof ServletRequestAttributes servletRequestAttributes) { // JAVA 16 이후 도입된 문법
+        if (requestAttributes instanceof ServletRequestAttributes) { // JAVA 16 이후 도입된 문법
+            ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
             return servletRequestAttributes.getRequest();
         }
         return null;

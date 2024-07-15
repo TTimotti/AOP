@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,13 +21,19 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+    private static final String HOME_URL = "/home";
+    private static final String ERROR_URL = "/error";
+    private static final String AUTH_URL = "/auth/**";
+    private static final String ADMIN_URL = "/admin/**";
+    private static final String LOGIN_URL = "/auth/login";
+    private static final String LOGOUT_URL = "/auth/logout";
 
     private final SecurityLoginSuccessHandler securityLoginSuccessHandler;
     private final SecurityLoginFailureHandler securityLoginFailureHandler;
     private final SecurityLogoutSuccessHandler securityLogoutSuccessHandler;
+
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -35,21 +42,21 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                                .requestMatchers("home", "/auth/**", "/error").permitAll()
+                                .antMatchers(HOME_URL, AUTH_URL, ERROR_URL).permitAll()
+                                .antMatchers(ADMIN_URL).hasRole("ADMIN")
                                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                                .requestMatchers("/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/auth/login")
-                        .loginProcessingUrl("/auth/login")
-                        .defaultSuccessUrl("/")
+                        .loginPage(LOGIN_URL)
+                        .loginProcessingUrl(LOGIN_URL)
+                        .defaultSuccessUrl(HOME_URL)
                         .successHandler(securityLoginSuccessHandler)
                         .failureHandler(securityLoginFailureHandler)
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/auth/logout")
+                        .logoutUrl(LOGOUT_URL)
                         .logoutSuccessUrl("/")
                         .logoutSuccessHandler(securityLogoutSuccessHandler)
                         .invalidateHttpSession(true)
@@ -74,11 +81,6 @@ public class SecurityConfig {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return web -> web.ignoring()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
     }
 
 }

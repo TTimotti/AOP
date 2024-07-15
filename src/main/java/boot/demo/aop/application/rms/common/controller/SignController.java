@@ -3,7 +3,6 @@ package boot.demo.aop.application.rms.common.controller;
 import boot.demo.aop.application.rms.common.annotation.Loggable;
 import boot.demo.aop.application.rms.common.model.dto.SignUpRequestDTO;
 import boot.demo.aop.application.rms.common.service.AuthenticationService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -13,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Slf4j
 @Controller
