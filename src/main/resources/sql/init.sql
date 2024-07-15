@@ -1,41 +1,19 @@
--- we don't know how to generate database DEMO (class Database) :(
+-- 권한 등록
+INSERT INTO PUBLIC.TB_ROLE (CODE, NAME) VALUES (1, 'USER');
+INSERT INTO PUBLIC.TB_ROLE (CODE, NAME) VALUES (9, 'ADMIN');
+INSERT INTO PUBLIC.TB_ROLE (CODE, NAME) VALUES (99, 'MASTER');
 
-create table PUBLIC.TB_ROLE
-(
-    ID   INTEGER auto_increment,
-    CODE INTEGER               not null
-        constraint TB_ROLE_CODE_UQ
-            unique,
-    NAME CHARACTER VARYING(16) not null,
-    constraint TB_ROLE_ID_PK
-        primary key (ID)
-);
+-- 테스트 사용자 등록
+INSERT INTO PUBLIC.TB_USER_MST (USER_ID, PASSWORD, NAME, EMAIL) VALUES ('admin', '$2a$10$.NM7PNXD6KsBYSNInpZTk.jQ.rlRmKKxmAMrOwysWVHv2gNpeFmN2', '관리자', null);
+INSERT INTO PUBLIC.TB_USER_MST (USER_ID, PASSWORD, NAME, EMAIL) VALUES ('test', '$2a$10$uYi7RIqUK9r1e8BlEvZptO8Jg9nETsb6aXuQnoSW0eeS.GH5.sW.K', '테스트 유저', null);
+INSERT INTO PUBLIC.TB_USER_MST (USER_ID, PASSWORD, NAME, EMAIL) VALUES ('master', '$2a$10$VN6oikhInhSIGK2w2m5vwe4P9SuMoQJi9A/FFz24uXmtTCsnHM7ke', '마스터 관리자', null);
 
-create table PUBLIC.TB_USER_MST
-(
-    ID       INTEGER auto_increment,
-    USER_ID  CHARACTER VARYING(16)  not null
-        constraint TB_USER_MST_USER_ID_UQ
-            unique,
-    PASSWORD CHARACTER VARYING(128) not null,
-    NAME     CHARACTER VARYING      not null,
-    EMAIL    CHARACTER VARYING,
-    constraint TB_USER_MST_ID_PK
-        primary key (ID)
-);
-
-create table PUBLIC.TB_USER_ROLE
-(
-    ID        INTEGER auto_increment,
-    USER_ID   CHARACTER VARYING(16) not null,
-    ROLE_CODE INTEGER,
-    constraint TB_USER_ROLE_PK
-        primary key (ID),
-    constraint TB_USER_ROLE_USER_ID_AND_ROLE_CODE_UQ
-        unique (USER_ID, ROLE_CODE),
-    constraint TB_USER_ROLE_TB_ROLE_CODE_FK
-        foreign key (ROLE_CODE) references PUBLIC.TB_ROLE (CODE),
-    constraint TB_USER_ROLE_TB_USER_MST_USER_ID_FK
-        foreign key (USER_ID) references PUBLIC.TB_USER_MST (USER_ID)
-);
+-- 테스트 사용자 권한 등록
+INSERT INTO PUBLIC.TB_USER_ROLE (USER_ID, ROLE_CODE) VALUES ('admin', 1);
+INSERT INTO PUBLIC.TB_USER_ROLE (USER_ID, ROLE_CODE) VALUES ('admin', 9);
+INSERT INTO PUBLIC.TB_USER_ROLE (USER_ID, ROLE_CODE) VALUES ('master', 1);
+INSERT INTO PUBLIC.TB_USER_ROLE (USER_ID, ROLE_CODE) VALUES ('master', 9);
+INSERT INTO PUBLIC.TB_USER_ROLE (USER_ID, ROLE_CODE) VALUES ('master', 99);
+INSERT INTO PUBLIC.TB_USER_ROLE (USER_ID, ROLE_CODE) VALUES ('test', 1);
+INSERT INTO PUBLIC.TB_USER_ROLE (USER_ID, ROLE_CODE) VALUES ('user', 1);
 
