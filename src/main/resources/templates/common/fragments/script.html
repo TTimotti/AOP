@@ -1,3 +1,7 @@
 <th:block th:fragment="scriptFragment(script)">
+    <script th:src="@{/js/jquery/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/js/tinymce/tinymce.min.js}"></script>
+    <script th:src="@{/js/tinymce/jquery.tinymce.min.js}"></script>
+    <script th:src="@{/js/config/tinyMceConfig.js}"></script>
     <script th:replace="${script}"></script>
 </th:block>
