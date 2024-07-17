@@ -9,18 +9,17 @@
 </head>
 
 <body>
-<article>
-    <nav>
+<article style="margin: 0 10px;">
+    <nav style="margin: 20px 10px 20px;">
         <a th:href="@{/report/insert}">보고서 등록</a>
         <a th:href="@{/main}">보고서 조회</a>
         <a th:href="@{/main}">보고서 현황</a>
     </nav>
     <!-- 검색 폼 -->
-    <form id="search_form" action="#" method="get">
-        <div class="form_group" style="flex: 1; margin-right: 10px;">
-            <input id="keyword" type="text" name="keyword" th:value="${keyword}" placeholder="보고서 제목" />
-            <label for="keyword">보고서 검색</label>
-        </div>
+    <form id="search_form" action="#" method="get" style="flex-direction: row; align-items: center; margin-left: 20px;">
+        <label for="keyword">보고서 검색</label>
+        <input id="keyword" type="text" name="keyword" th:value="${keyword}" placeholder="보고서 제목" />
+
         <button type="submit">검색</button>
         <button type="button">상세검색</button>
     </form>

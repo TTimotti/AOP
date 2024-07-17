@@ -10,32 +10,53 @@
 
 <body>
 <article>
-    <form id="report_form" class="default" method="post" th:action="@{/report/insert}">
+    <form id="report_form" class="default" method="post" th:action="@{/report/insert}" style="width: 1000px; gap: 10px; margin: 20px;">
+        <div class="flex_div">
+            <label for="author">작성자</label>
+            <input type="text" id="author" name="author" th:value="${#authentication.name}" required readonly/>
+        </div>
 
-        <label for="title">제목</label>
-        <input type="text" id="title" name="title"/>
+        <div class="flex_div">
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" style="flex-grow: 1;" required/>
+        </div>
 
+        <div class="flex_div" style="margin-top: 25px; width: 100%;">
+            <label for="content" style="width: 100px; padding: 10px; margin-right: 0;">보고서 내용</label>
+            <textarea id="content" name="content"></textarea>
+        </div>
 
-        <label for="author">작성자</label>
-        <input type="text" id="author" name="author"/>
-
-        <label for="content">본문</label>
-        <textarea id="content" name="content"></textarea>
-
-        <button type="submit">등록</button>
+        <div style="align-self: flex-end;">
+            <button type="submit">등록</button>
+        </div>
     </form>
 </article>
 <script th:inline="javascript">
-document.addEventListener('DOMContentLoaded', function() {
-	
-	function goToPage(pageNumber) {
-	    const keyword = document.getElementById('keyword').value;
-	    alert(pageNumber);
-	    
-	    window.location.href = `/admin/list?pageNo=${pageNumber}`;
-	}
-	
-});
+    $(document).ready(function() {
+        tinyEditorInit("content", 500);
+
+        $("#report_form").on('click', function(event) {
+
+            event.preventDefault();
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: $(this).attr('method'),
+                data: formData,
+                processData: false, // data를 문자열로 변환하지 않도록 설정
+                contentType: false, // contentType을 false로 설정하여 jQuery가 설정하지 않도록 함
+                success: function(response) {
+                    console.log(response);
+                    alert('보고서가 등록되었습니다.');
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    // 오류 콜백 함수
+                    alert('보고서 등록 중 오류가 발생하였습니다.');
+                }
+            });
+        });
+    });
 </script>
 </body>
 </html>

@@ -16,12 +16,12 @@
     <form id="login_form" th:action="@{/auth/login}" method="post" style="width: 300px; align-items: center; margin-top: 50px;">
         <div class="float_label_group">
             <input type="text" id="username" name="username" maxlength="40" placeholder="ID" required />
-            <label for="username">ID</label>
+            <label for="username" class="float_label">ID</label>
         </div>
 
         <div class="float_label_group">
             <input type="password" id="password" name="password" maxlength="200" placeholder="Password" required />
-            <label for="password">Password</label>
+            <label for="password" class="float_label">Password</label>
         </div>
 
         <button class="update" type="submit" style="width: 281px;">로그인</button>
