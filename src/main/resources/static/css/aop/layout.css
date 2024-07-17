@@ -139,5 +139,6 @@ footer {
 #two_buttons_group {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin: 15px 0;
 }

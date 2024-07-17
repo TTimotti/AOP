@@ -88,7 +88,7 @@ th {
 /* 기본 버튼 */
 button,
 .button {
-    display: inline-block;
+    align-self: flex-end;
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
@@ -96,7 +96,6 @@ button,
     padding: 8px 20px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     margin: 0 5px;
 }
 
@@ -156,8 +155,9 @@ button:hover,
 /* E:button */
 
 /* input */
-input,
-textarea {
+input {
+    padding: 0 10px;
+    height: 32px;
     font-size: 16px;
     border: 1px solid #cccccc;
     border-radius: 5px;
@@ -165,17 +165,30 @@ textarea {
     transition: border-color 0.3s ease;
 }
 
-input:focus,
-textarea:focus {
+input:focus {
     outline: none;
     border-color: dodgerblue;
     box-shadow: 0 0 5px dodgerblue;
+}
+
+label {
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
 }
 
 /* form */
 form {
     display: flex;
     flex-direction: column;
+}
+
+/* float label */
+.float_label {
+    text-align: left;
 }
 
 .float_label_group {
@@ -224,3 +237,7 @@ form {
     color: transparent;
 }
 
+/* css */
+.flex_div {
+    display: flex;
+}
