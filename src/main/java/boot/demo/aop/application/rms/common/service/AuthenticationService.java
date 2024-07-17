@@ -3,7 +3,7 @@ package boot.demo.aop.application.rms.common.service;
 import boot.demo.aop.application.rms.common.annotation.Loggable;
 import boot.demo.aop.exception.AOPException;
 import boot.demo.aop.exception.ErrorCode;
-import boot.demo.aop.application.rms.common.model.AOPCode;
+import boot.demo.aop.application.rms.common.model.Role;
 import boot.demo.aop.application.rms.common.model.dto.SignUpRequestDTO;
 import boot.demo.aop.application.rms.common.model.dto.UserDetailsResponseDTO;
 import boot.demo.aop.application.rms.common.model.entity.TbRole;
@@ -73,7 +73,7 @@ public class AuthenticationService implements UserDetailsService {
 
         TbUserRole newUserRole = TbUserRole.builder()
                 .userId(signUpRequestDTO.getUsername())
-                .roleCode(AOPCode.ROLE_USER.getCode())
+                .roleCode(Role.ROLE_USER.getCode())
                 .build();
 
 

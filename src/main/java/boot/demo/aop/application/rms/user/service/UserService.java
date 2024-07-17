@@ -23,7 +23,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     @Loggable
-    public List<AdminListResponseDTO> getA() {
+    public List<AdminListResponseDTO> getAll() {
         List<AdminListResponseDTO> result = new ArrayList<>();
         List<TbUserMst> adminUserList = tbUserMstRepository.getAllAdmin();
         for (TbUserMst user : adminUserList) {

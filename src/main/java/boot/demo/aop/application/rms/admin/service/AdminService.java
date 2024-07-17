@@ -4,7 +4,7 @@ import boot.demo.aop.application.rms.common.annotation.Loggable;
 import boot.demo.aop.exception.AOPException;
 import boot.demo.aop.exception.ErrorCode;
 import boot.demo.aop.application.rms.common.model.dto.AdminListResponseDTO;
-import boot.demo.aop.application.rms.common.model.dto.InsertAdminRequestDTO;
+import boot.demo.aop.application.rms.common.model.dto.AdminInsertRequestDTO;
 import boot.demo.aop.application.rms.common.model.entity.TbRole;
 import boot.demo.aop.application.rms.common.model.entity.TbUserMst;
 import boot.demo.aop.application.rms.common.repository.TbRoleRepository;
@@ -27,7 +27,7 @@ public class AdminService {
 
     @Loggable
     @Transactional
-    public void insertAdmin(InsertAdminRequestDTO insertAdminRequestDTO) {
+    public void insertAdmin(AdminInsertRequestDTO insertAdminRequestDTO) {
         TbUserMst user = tbUserMstRepository.getUserMstById(insertAdminRequestDTO.getUsername());
         if (user == null) {
             throw new AOPException(ErrorCode.USER_NOT_FOUND);
