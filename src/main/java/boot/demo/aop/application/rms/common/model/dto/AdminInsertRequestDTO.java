@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class InsertAdminRequestDTO {
+public class AdminInsertRequestDTO {
     private String username;
     private long roleCode;
 }

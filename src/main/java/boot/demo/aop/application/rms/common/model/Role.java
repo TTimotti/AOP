@@ -5,9 +5,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum AOPCode {
+public enum Role {
+
     ROLE_USER(1, "ROLE_USER"),
-    ROLE_ADMIN(99, "ROLE_ADMIN");
+    ROLE_ADMIN(9, "ROLE_ADMIN");
 
     private final long code;
     private final String name;
